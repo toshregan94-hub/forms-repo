@@ -2,35 +2,28 @@
   // Connect forms html to Javascript
 document.addEventListener("DOMContentLoaded", () => {
     const taskForm = document.querySelector("#create-task-form");
-    const taskList = document.querySelector("#tasks"); 
 
-    // Add event listener to form
     taskForm.addEventListener("submit", (event) => {
-        // Add preventDefault()
-
+        //Preventing the default behavior
         event.preventDefault();
-        const taskDescription = event.target["new-task-description"].value;
 
-        // Call buildToDo and pass in the saved task
+        // Handle form data 
+        const input = event.target.querySelector('[name="new-task-description"]');
+        const taskDescription = input.value;
+
+        // Calling the function 
         buildToDo(taskDescription);
 
-        // Clear the input field for the next task
+        // Reset the form
         event.target.reset();
     });
 
     // Add item to list and display
     function buildToDo(task) {
-      
-        // Create a new li element
+        const taskList = document.querySelector("#task"); // Using the ID 'task'
         const li = document.createElement("li");
-
-        // Adding task as the textContent
+        
         li.textContent = task;
-
-        // Append the li element to the task list
         taskList.appendChild(li);
     }
 });
-
-
-
