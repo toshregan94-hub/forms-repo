@@ -1,29 +1,35 @@
 
-  // Connect forms html to Javascript
+  // Select the form and add the event listener
 document.addEventListener("DOMContentLoaded", () => {
     const taskForm = document.querySelector("#create-task-form");
+  if (taskForm) {
+        taskForm.addEventListener("submit", (event) => {
+            //Prevent default reload
+            event.preventDefault();
 
-    taskForm.addEventListener("submit", (event) => {
-        //Preventing the default behavior
-        event.preventDefault();
+            // Getting the value using "new-task-description"
+            const taskDescription = event.target["new-task-description"].value;
 
-        // Handle form data 
-        const input = event.target.querySelector('[name="new-task-description"]');
-        const taskDescription = input.value;
+            // Call the function
+            buildToDo(taskDescription);
 
-        // Calling the function 
-        buildToDo(taskDescription);
-
-        // Reset the form
-        event.target.reset();
-    });
-
-    // Add item to list and display
-    function buildToDo(task) {
-        const taskList = document.querySelector("#task"); 
-        const li = document.createElement("li");
-        
-        li.textContent = task;
-        taskList.appendChild(li);
+            // Reset form
+            event.target.reset();
+        });
     }
 });
+
+// Define buildToDo 
+function buildToDo(task) {
+    // Create the li
+    const li = document.createElement("li");
+    li.textContent = task;
+
+    // Select the list 
+    const taskList = document.querySelector("#tasks");
+
+    // Appending it
+    if (taskList) {
+        taskList.appendChild(li);
+    }
+}
