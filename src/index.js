@@ -1,5 +1,5 @@
 
-  // Step 2: Connect forms html to Javascript
+  // Connect forms html to Javascript
 document.addEventListener("DOMContentLoaded", () => {
     const taskForm = document.querySelector("#create-task-form");
     const taskList = document.querySelector("#tasks"); 
@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add event listener to form
     taskForm.addEventListener("submit", (event) => {
         // Add preventDefault()
-        event.preventDefault();
 
+        event.preventDefault();
         const taskDescription = event.target["new-task-description"].value;
 
         // Call buildToDo and pass in the saved task
@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
         event.target.reset();
     });
 
-    // Step 4: Add item to list and display
+    // Add item to list and display
     function buildToDo(task) {
+      
         // Create a new li element
         const li = document.createElement("li");
 
