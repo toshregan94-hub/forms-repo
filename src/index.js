@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Add item to list and display
     function buildToDo(task) {
-        const taskList = document.querySelector("#task"); // Using the ID 'task'
+        const taskList = document.querySelector("#task"); 
         const li = document.createElement("li");
         
         li.textContent = task;
