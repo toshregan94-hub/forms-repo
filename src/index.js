@@ -2,11 +2,11 @@
   // Select the form and add the event listener
 document. addEventListener("DOMContentLoaded", () => {
 //select form element by id 
-const form = document. getElementById("#create-task-form");
+const form = document. getElementById("create-task-form");
 
-const input = document. getElementById("#new-task-description");
+const input = document. getElementById("new-task-description");
 //get the list where tasks will be displayed
-const taskList = document. getElementById("#tasks");
+const taskList = document. getElementById("tasks");
 
 
 
